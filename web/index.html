@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TeleOp Wi‑Fi Onboarding</title>
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;max-width:720px;margin:40px auto;padding:0 16px}
+    .card{border:1px solid #ddd;border-radius:16px;box-shadow:0 2px 6px rgba(0,0,0,.06);padding:16px;margin:16px 0}
+    label{display:block;margin:.5rem 0 .25rem;font-weight:600}
+    input,select,button{padding:.6rem;border-radius:10px;border:1px solid #bbb;width:100%}
+    button{cursor:pointer}
+    .row{display:grid;gap:12px;grid-template-columns:1fr 1fr}
+    .row>div{display:flex;flex-direction:column}
+    .muted{color:#666;font-size:.9rem}
+    .ok{color:green}
+    .err{color:#b00}
+    .brand{font-weight:800}
+  </style>
+</head>
+<body>
+  <h1 class="brand">TeleOp — Web Bluetooth Wi‑Fi Onboarding</h1>
+  <div class="card">
+    <p class="muted">Scan de QR-code op het apparaat om automatisch het token & deze pagina te openen. Of vul handmatig:</p>
+    <label>Setup token</label>
+    <input id="token" placeholder="xxxx-xxxx-... (van QR)"/>
+    <button id="btnConnect">Verbind via Bluetooth</button>
+    <div id="dev" class="muted"></div>
+  </div>
+  <div class="card">
+    <div class="row">
+      <div>
+        <label>Beschikbare netwerken</label>
+        <select id="ssid"></select>
+        <button id="btnScan">Scan Wi‑Fi</button>
+      </div>
+      <div>
+        <label>Wachtwoord</label>
+        <input id="pass" type="password" placeholder="Wi‑Fi wachtwoord"/>
+        <button id="btnConnectWifi">Verbind met Wi‑Fi</button>
+      </div>
+    </div>
+    <p class="muted">Status: <span id="status">–</span></p>
+    <button id="btnStatus">Ververs status</button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

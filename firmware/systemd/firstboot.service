@@ -1,0 +1,17 @@
+[Unit]
+Description=TeleOp first boot one-time setup
+After=multi-user.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=no
+ExecStart=/usr/local/teleop/gen_hostname.sh
+ExecStart=/usr/local/teleop/provision_token.sh
+ExecStart=/bin/mv -f /boot/onboarding.env /etc/teleop/onboarding.env
+ExecStart=/bin/touch /etc/teleop/firstboot.done
+ExecStart=/bin/rm -f /boot/firstboot.flag
+ExecStart=/bin/systemctl enable ble_onboard.service
+ExecStart=/bin/systemctl start ble_onboard.service
+
+[Install]
+WantedBy=multi-user.target

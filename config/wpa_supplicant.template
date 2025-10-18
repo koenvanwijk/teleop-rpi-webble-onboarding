@@ -1,0 +1,9 @@
+ctrl_interface=DIR=/run/wpa_supplicant GROUP=netdev
+update_config=1
+country=NL
+
+network={
+    ssid="{SSID}"
+    psk="{PSK}"
+    key_mgmt=WPA-PSK
+}

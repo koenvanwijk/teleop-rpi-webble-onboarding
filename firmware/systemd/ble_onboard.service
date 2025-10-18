@@ -1,0 +1,14 @@
+[Unit]
+Description=TeleOp BLE Web Onboarding
+After=bluetooth.service dbus.service network.target
+Wants=bluetooth.service
+
+[Service]
+Type=simple
+EnvironmentFile=/etc/teleop/onboarding.env
+ExecStart=/usr/bin/python3 /usr/local/teleop/ble_onboard.py
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target
